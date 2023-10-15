@@ -1,16 +1,10 @@
-import os
 import flask
 from flask import Flask, render_template, request
-from flask_wtf.csrf import CSRFProtect
 
 app = flask.Flask(__name__)
-csrf = CSRFProtect(app)
-app.config['SECRET_KEY'] = os.urandom(24)
-
-@app.route("/myform")
-
+@app.route("/myformexam")
 def form():
-    return render_template('myformcsrf.html')
+    return render_template('myform.html')
 
 @app.route("/submit", methods=['POST'])
 def submit():
@@ -23,3 +17,4 @@ def submit():
 
 if __name__ == '__main__':
     app.run()
+
